@@ -1,20 +1,53 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit">Salvar</button>
-    </form>
+{% extends 'contas/base.html' %}
+
+{%block active_nav_item%}
+
+<li class="nav-item">
+    <a class="nav-link" href="{%url 'home'%}">Listar Todos</a>
+</li>
+
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'nova_transacao' %}">Nova Transação</a>
+</li>
+
+{%endblock%}
+
+{% block base %}
+<h1 class="text-center"> Nova Transição </h1>
+<hr>
+<form method="POST" class="text-center">
+    {%csrf_token%}
+    <div class="form-group row">
+        <label class="col-1"> Descrição: </label>
+        <div class="col-5">
+            {{form.descricao}}
+        </div>
+        <label class="col-1"> Valor: </label>
+        <div class="col-5">
+            {{form.valor}}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-1"> Data: </label>
+        <div class="col-5">
+            {{form.data}}
+        </div>
+        <label class="col-1"> Categoria: </label>
+        <div class="col-5">
+            {{form.categoria}}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-1">Observação:</label>
+        <div class="col-11">
+            {{form.observacoes}}
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit">Salvar</button>
     {% if transacao %}
-    <button> <a href="{% url 'delete_transacao' transacao.id %}"> Deletar </a></button>
+    <button class="btn btn-danger"><a class="delete_link" href="{% url 'delete_transacao' transacao.id %}"> Deletar </a></button>
     {% endif %}
-</body>
-</html>
+    {% endblock %}
+    scr
+</form>
+

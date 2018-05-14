@@ -30,6 +30,7 @@ def update(request, pk):
         form.save()
         return redirect('home')
     data['form'] = form
+    print(form.fields)
     data['transacao'] = transacao
     return render(request, 'contas/form.html', data)
 

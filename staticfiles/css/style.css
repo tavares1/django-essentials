@@ -1,0 +1,7 @@
+.delete_link {
+    color: #fff;
+}
+
+.delete_link a:hover{
+    text-decoration: none;
+}

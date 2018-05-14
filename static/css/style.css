@@ -1,0 +1,8 @@
+.delete_link {
+    color: #fff;
+}
+
+.delete_link:hover{
+    text-decoration: none;
+    color: #fff
+}
